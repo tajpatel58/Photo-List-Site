@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
 </head>
 
 <body>
@@ -41,30 +42,37 @@
 
 <script>
 async function loadCSV() {
-    const response = await fetch('./photos.csv');
+    const response = await fetch('Wedding Planning - Photo List.csv');
     const text = await response.text();
 
     const rows = text.split('\n').slice(1); // skip header
     const container = document.getElementById('photoContainer');
 
+    let photoCounter = 1; // 👈 key change
+
     rows.forEach(row => {
         if (!row.trim()) return;
 
-        const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
-        let photoNum = cols[0].trim();
+        const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
-        let radhikaList = cols[1]?.replaceAll('"','').split(',');
-        let tajList = cols[2]?.replaceAll('"','').split(',');
+        let radhikaRaw = cols[1]?.replaceAll('"','').trim();
+        let tajRaw = cols[2]?.replaceAll('"','').trim();
 
-        // Clean names
-        radhikaList = radhikaList.map(n => n.trim()).filter(n => n);
-        tajList = tajList.map(n => n.trim()).filter(n => n);
+        // Clean + split safely
+        let radhikaList = radhikaRaw ? radhikaRaw.split(',').map(n => n.trim()).filter(n => n) : [];
+        let tajList = tajRaw ? tajRaw.split(',').map(n => n.trim()).filter(n => n) : [];
 
-        // PHOTO (Radhika)
-        createPhotoSection(container, photoNum, radhikaList);
+        // Radhika photo first
+        if (radhikaList.length > 0) {
+            createPhotoSection(container, photoCounter, radhikaList);
+            photoCounter++; // increment only if created
+        }
 
-        // PHOTO (Taj) → next number
-        createPhotoSection(container, parseInt(photoNum) + 1, tajList);
+        // Taj photo second
+        if (tajList.length > 0) {
+            createPhotoSection(container, photoCounter, tajList);
+            photoCounter++; // increment only if created
+        }
     });
 }
 
@@ -95,7 +103,6 @@ function createPhotoSection(container, number, names) {
     section.appendChild(list);
     container.appendChild(section);
 }
-
 // Search
 function setupSearch() {
     const input = document.getElementById('searchInput');
