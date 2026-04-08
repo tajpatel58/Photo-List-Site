@@ -259,3 +259,68 @@ body {
     height: auto;
     border-radius: 4px;
 }
+/* =========================
+   MOBILE OPTIMISATION
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 25px 16px;
+    }
+
+    /* Header */
+    .top-title {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .names {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .date {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    /* Hero image */
+    .hero-image img {
+        width: 90%;
+        max-width: none;
+    }
+
+    /* Search */
+    .search-wrapper {
+        width: 85%;
+        margin-bottom: 40px;
+    }
+
+    .search-box {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+
+    /* Photo sections */
+    .photo-section {
+        margin-bottom: 60px;
+    }
+
+    .photo-heading {
+        font-size: 22px;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+    }
+
+    /* Names */
+    .row {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    /* Spacing between names */
+    .list {
+        gap: 8px;
+    }
+}
