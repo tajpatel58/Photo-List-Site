@@ -271,17 +271,17 @@ body {
 
     /* Header */
     .top-title {
-        font-size: 12px;
+        font-size: 16px;
         letter-spacing: 4px;
     }
 
     .names {
-        font-size: 28px;
+        font-size: 32px;
         letter-spacing: 4px;
     }
 
     .date {
-        font-size: 16px;
+        font-size: 18px;
         letter-spacing: 3px;
     }
 
@@ -308,14 +308,14 @@ body {
     }
 
     .photo-heading {
-        font-size: 22px;
+        font-size: 26px;
         letter-spacing: 4px;
         margin-bottom: 20px;
     }
 
     /* Names */
     .row {
-        font-size: 15px;
+        font-size: 18px;
         letter-spacing: 2px;
     }
 
