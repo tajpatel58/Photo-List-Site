@@ -42,7 +42,7 @@
 
 <script>
 async function loadCSV() {
-    const response = await fetch('Wedding Planning - Photo List.csv');
+    const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSufhFfUBXJ5cHxAu_O0ozx6Z5O9oZjF0V4L0y9QHMi4n_5XeNZPHXsiCp8EMw1pVfBIHFU9VdNhJ9S/pub?gid=1911387848&single=true&output=csv');
     const text = await response.text();
 
     const rows = text.split('\n').slice(1); // skip header
