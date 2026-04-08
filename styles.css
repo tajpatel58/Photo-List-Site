@@ -137,7 +137,8 @@ body {
 
 .photo-heading {
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 24px;
+    text-decoration: underline;
     letter-spacing: 6px;
     margin-bottom: 25px;
     font-style: italic;
@@ -183,17 +184,17 @@ body {
 
     /* Header */
     .top-title {
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 4px;
     }
 
     .names {
-        font-size: 32px;
+        font-size: 26px;
         letter-spacing: 4px;
     }
 
     .date {
-        font-size: 18px;
+        font-size: 16px;
         letter-spacing: 3px;
     }
 
@@ -210,7 +211,7 @@ body {
     }
 
     .search-box {
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 1.5px;
     }
 
@@ -220,15 +221,14 @@ body {
     }
 
     .photo-heading {
-        font-size: 26px;
+        font-size: 18px;
         letter-spacing: 4px;
         margin-bottom: 20px;
     }
 
     /* Names */
     .row {
-        font-size: 18px;
-        letter-spacing: 2px;
+        font-size: 14px;
     }
 
     .list {
