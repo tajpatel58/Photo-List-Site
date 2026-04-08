@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taj & Radhika Wedding Photos</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- Pre-wedding Photo -->
+<div class="hero-image">
+    <img src="prewedding.jpg" alt="Taj & Radhika">
+</div>
+
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+    <div class="top-title">PHOTO LIST</div>
+    <div class="names">TAJ + RADHIKA</div>
+    <div class="date">20 - 06 - 2026</div>
+</div>
+
+    <!-- Search -->
+    <div class="search-wrapper">
+        <label class="search-label">Guest Search</label>
+        <input type="text" id="searchInput" class="search-box" placeholder="Find your name...">
+        <div class="search-line"></div>
+    </div>
+
+    <!-- Dynamic content -->
+    <div id="photoContainer"></div>
+
+</div>
+
+<script>
+async function loadCSV() {
+    const response = await fetch('./photos.csv');
+    const text = await response.text();
+
+    const rows = text.split('\n').slice(1); // skip header
+    const container = document.getElementById('photoContainer');
+
+    rows.forEach(row => {
+        if (!row.trim()) return;
+
+        const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/); 
+        let photoNum = cols[0].trim();
+
+        let radhikaList = cols[1]?.replaceAll('"','').split(',');
+        let tajList = cols[2]?.replaceAll('"','').split(',');
+
+        // Clean names
+        radhikaList = radhikaList.map(n => n.trim()).filter(n => n);
+        tajList = tajList.map(n => n.trim()).filter(n => n);
+
+        // PHOTO (Radhika)
+        createPhotoSection(container, photoNum, radhikaList);
+
+        // PHOTO (Taj) → next number
+        createPhotoSection(container, parseInt(photoNum) + 1, tajList);
+    });
+}
+
+function createPhotoSection(container, number, names) {
+    const section = document.createElement('div');
+    section.className = 'photo-section';
+
+    const heading = document.createElement('div');
+    heading.className = 'photo-heading';
+    heading.textContent = `PHOTO ${number}`;
+
+    const list = document.createElement('div');
+    list.className = 'list';
+
+    names.forEach(name => {
+        const row = document.createElement('div');
+        row.className = 'row';
+
+        const span = document.createElement('span');
+        span.className = 'person';
+        span.textContent = name;
+
+        row.appendChild(span);
+        list.appendChild(row);
+    });
+
+    section.appendChild(heading);
+    section.appendChild(list);
+    container.appendChild(section);
+}
+
+// Search
+function setupSearch() {
+    const input = document.getElementById('searchInput');
+
+    input.addEventListener('keyup', () => {
+        const query = input.value.toLowerCase();
+        const sections = document.querySelectorAll('.photo-section');
+
+        sections.forEach(section => {
+            const rows = section.querySelectorAll('.row');
+            let match = false;
+
+            rows.forEach(row => {
+                const name = row.textContent.toLowerCase();
+
+                if (name.includes(query)) {
+                    row.classList.remove('hidden');
+                    match = true;
+                } else {
+                    row.classList.add('hidden');
+                }
+            });
+
+            if (match || query === "") {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
+            }
+        });
+    });
+}
+
+// Init
+loadCSV().then(setupSearch);
+</script>
+
+</body>
+</html>

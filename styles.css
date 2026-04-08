@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    background: #f5f3ef;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.names {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    letter-spacing: 6px;
+}
+
+.date {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-top: 10px;
+    letter-spacing: 4px;
+}
+
+/* Search */
+.search-wrapper {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.search-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.search-box {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 2px;
+    padding: 8px 0;
+    outline: none;
+    color: #111;
+}
+
+.search-line {
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.search-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #111;
+    transition: width 0.4s ease;
+}
+
+.search-box:focus + .search-line::after {
+    width: 100%;
+}
+
+.search-box::placeholder {
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+/* Section Letter */
+.letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    margin-bottom: 20px;
+}
+
+/* List */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.photo {
+    color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Photo blocks */
+.photo-block {
+    margin-bottom: 40px;
+}
+.photo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.photo-names {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #333;
+    line-height: 1.8;
+}
+/* Photo section */
+.photo-section {
+    margin-bottom: 60px;
+}
+.photo-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+}
+/* Top title */
+.top-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #666;
+}
+/* Photo section */
+.photo-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+/* PHOTO heading */
+.photo-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+/* List container */
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Each name row */
+.row {
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.photo-section::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: #ddd;
+    margin: 40px auto 0;
+}
+.search-box {
+    width: 60%; /* reduced by 40% */
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 2px;
+    padding: 8px 0;
+    outline: none;
+    color: #111;
+    margin: 0 auto; /* centers it */
+    display: block;
+}
+.search-line {
+    height: 1px;
+    width: 60%;
+    background: #ccc;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+/* Wrapper controls overall width + centering */
+.search-wrapper {
+    width: 60%;
+    margin: 0 auto 60px auto;
+    text-align: left; /* keeps label aligned nicely with input */
+}
+
+/* Label now aligns with input */
+.search-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input takes full width of wrapper */
+.search-box {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 2px;
+    padding: 8px 0;
+    outline: none;
+    color: #111;
+}
+
+/* Line matches input width automatically now */
+.search-line {
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    position: relative;
+    overflow: hidden;
+}
+/* Hero image */
+.hero-image {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+.hero-image img {
+    width: 80%;          /* controls overall size */
+    max-width: 700px;    /* prevents it getting too large */
+    height: auto;
+    border-radius: 4px;
+}
